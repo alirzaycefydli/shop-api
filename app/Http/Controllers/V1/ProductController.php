@@ -23,4 +23,10 @@ class ProductController extends Controller
 
         return $this->successResponse('success', ProductResource::collection($data));
     }
+
+    public function show(int $id)//: JsonResponse
+    {
+        $data = $this->productRepository->findById($id);
+        return $this->successResponse('success', new ProductResource($data));
+    }
 }

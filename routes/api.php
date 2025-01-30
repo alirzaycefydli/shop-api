@@ -13,7 +13,8 @@ Route::prefix('/v1')->group(function () {
         Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('auth:sanctum');
     });
 
-    Route::get('/', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/products/{product}', [ProductController::class, 'show'])->name('product.show');
 
 
 });
