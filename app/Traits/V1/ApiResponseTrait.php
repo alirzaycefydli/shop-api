@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 trait ApiResponseTrait
 {
-    public function successResponse(JsonResource|array $data, string $message = 'Success', int $status = 200): JsonResponse
+    public function successResponse(string $message = 'Success', mixed $data = null, int $status = 200): JsonResponse
     {
         return response()->json([
             'success' => true,
@@ -16,7 +16,7 @@ trait ApiResponseTrait
         ], $status);
     }
 
-    public function errorResponse(string $message = 'Error', int $status = 400, mixed $errors = null): JsonResponse
+    public function errorResponse(string $message = 'Error', mixed $errors = null, int $status = 400): JsonResponse
     {
         return response()->json([
             'success' => false,
