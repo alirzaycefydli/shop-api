@@ -25,7 +25,8 @@ class ProductResource extends JsonResource
             'quantity' => $this->quantity,
             'discount_percent' => $this->discount_percent,
             'is_featured' => $this->is_featured,
-            'primary_image'=>$this->primaryImage ? $this->primaryImage->image_path : null,
+            'primary_image' => $this->primaryImage ? $this->primaryImage->image_path : null,
+            'images' => $this->images ? $this->images->pluck('image_path') : null,
         ];
     }
 }

@@ -19,4 +19,13 @@ class ProductRepository
             ->take(4)
             ->get();
     }
+
+    public function findById(int $id)
+    {
+        return Product::where('id', $id)
+            ->where('is_confirmed', 1)
+            ->where('quantity', '>', 0)
+            ->with('images')
+            ->firstOrFail();
+    }
 }
