@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\V1\AuthController;
+use App\Http\Controllers\V1\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/v1')->group(function () {
@@ -11,6 +12,8 @@ Route::prefix('/v1')->group(function () {
 
         Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('auth:sanctum');
     });
+
+    Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
 
 });
