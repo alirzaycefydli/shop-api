@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: shop_api
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes:
+            - .:/var/www
+            - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+        networks:
+            - shop_api
+        depends_on:
+            - db
+        ports:
+            - "9000:9000"
+
+    nginx:
+        image: nginx:1.25
+        container_name: nginx
+        restart: unless-stopped
+        volumes:
+            - .:/var/www
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - "8000:80"
+        networks:
+            - shop_api
+        depends_on:
+            - app
+
+    db:
+        image: postgres:15
+        container_name: postgres
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: shop_api
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: secret
+        ports:
+            - "5432:5432"
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        networks:
+            - shop_api
+
+volumes:
+    pgdata:
+
+networks:
+    shop_api:
