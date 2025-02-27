@@ -20,7 +20,7 @@ class ProductRepository
             ->get();
     }
 
-    public function findById(int $id)
+    public function findProductById(int $id): mixed
     {
         return Product::where('id', $id)
             ->where('is_confirmed', 1)
