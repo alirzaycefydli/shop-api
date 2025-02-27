@@ -36,6 +36,16 @@ class Product extends Model
     }
 
     /**
+     * Get the reviews of the product
+     *
+     * @return HasMany
+     */
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class)->orderBy('created_at', 'desc');
+    }
+
+    /**
      * Calculate the price in cents
      *
      * @return Attribute
