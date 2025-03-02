@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\V1\AuthController;
 use App\Http\Controllers\V1\CartController;
+use App\Http\Controllers\V1\CategoryController;
 use App\Http\Controllers\V1\ProductController;
 use App\Http\Controllers\V1\ReviewController;
 use App\Http\Controllers\V1\WishlistController;
@@ -30,5 +31,8 @@ Route::prefix('/v1')->group(function () {
     Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist.index')->middleware('auth:sanctum');
     Route::post('wishlist', [WishlistController::class, 'store'])->name('wishlist.store')->middleware('auth:sanctum');
     Route::delete('wishlist/{product}', [WishlistController::class, 'destroy'])->name('wishlist.destroy')->middleware('auth:sanctum');
+
+    Route::get('category', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('category/{category}', [CategoryController::class, 'show'])->name('category.show');
 
 });
