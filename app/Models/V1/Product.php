@@ -5,6 +5,7 @@ namespace App\Models\V1;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -43,6 +44,14 @@ class Product extends Model
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class)->orderBy('created_at', 'desc');
+    }
+
+    /**
+     * Category for this product
+     * */
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'category_product');
     }
 
     /**
