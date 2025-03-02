@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\V1\AuthController;
+use App\Http\Controllers\V1\CartController;
 use App\Http\Controllers\V1\ProductController;
 use App\Http\Controllers\V1\ReviewController;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,10 @@ Route::prefix('/v1')->group(function () {
 
     Route::post('reviews', [ReviewController::class, 'store'])->name('review.store');
     Route::get('reviews/{product}', [ReviewController::class, 'index'])->name('review.index');
+
+    Route::get('cart', [CartController::class, 'index'])->name('cart.index')->middleware('auth:sanctum');
+    Route::post('cart', [CartController::class, 'store'])->name('cart.store')->middleware('auth:sanctum');
+    Route::put('cart/{product}', [CartController::class, 'update'])->name('cart.update')->middleware('auth:sanctum');
+    Route::delete('cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth:sanctum');
+
 });
