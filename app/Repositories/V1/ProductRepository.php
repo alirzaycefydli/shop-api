@@ -15,6 +15,7 @@ class ProductRepository
         return Product::where('is_confirmed', 1)
             ->where('quantity', '>', 0)
             ->with('primaryImage')
+            ->with('reviews')
             ->latest()
             ->take(4)
             ->get();
@@ -26,6 +27,7 @@ class ProductRepository
             ->where('is_confirmed', 1)
             ->where('quantity', '>', 0)
             ->with('images')
+            ->with('reviews')
             ->firstOrFail();
     }
 }
