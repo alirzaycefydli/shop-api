@@ -17,9 +17,12 @@ class SingleProductResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'image'=>$this->primaryImage ? $this->primaryImage->image_path : null,
             'short_description' => $this->short_description,
             'brand' => $this->brand,
             'price' => $this->price,
+            'rating' => $this->reviews->avg('rating'),
+            'discounted_price'=> $this->discounted_price,
             'discount_percent' => $this->discount_percent,
             'is_featured' => $this->is_featured,
         ];
