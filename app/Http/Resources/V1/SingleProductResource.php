@@ -25,6 +25,7 @@ class SingleProductResource extends JsonResource
             'discounted_price'=> $this->discounted_price,
             'discount_percent' => $this->discount_percent,
             'is_featured' => $this->is_featured,
+            'reviews' => $this->reviews ? $this->reviews->select('rating') : null,
         ];
     }
 }
