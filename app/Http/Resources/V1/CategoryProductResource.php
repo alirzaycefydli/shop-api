@@ -24,7 +24,7 @@ class CategoryProductResource extends JsonResource
             'discounted_price'=>$this->discountedPrice,
             'discount_percent' => $this->discount_percent,
             'primary_image' => $this->primaryImage ? $this->primaryImage->image_path : null,
-            'reviews' => $this->reviews ? $this->reviews->select('rating') : null,
+            'rating' => $this->reviews->avg('rating'),
         ];
     }
 }
