@@ -26,9 +26,9 @@ class CategoryRepository
             $query = Product::whereHas('categories', function ($q) use ($category) {
                 $q->where('categories.id', $category->id)
                     ->orWhere('categories.parent_category_id', $category->id);
-            })->with('primaryImage');
+            })->with(['primaryImage','reviews']);
         } else {
-            $query = Product::with('primaryImage');
+            $query = Product::with('primaryImage','reviews');
         }
 
         $query = $this->sortProducts($query, $sort_by);

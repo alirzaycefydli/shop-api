@@ -17,10 +17,11 @@ class WishlistResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'brand' => $this->brand,
             'price' => $this->price,
+            'discounted_price'=> $this->discounted_price,
             'discount_percent' => $this->discount_percent,
-            'primary_image' => $this->primary_image
+            'rating' => $this->reviews->avg('rating'),
+            'image'=>$this->primaryImage ? $this->primaryImage->image_path : null,
         ];
     }
 }
