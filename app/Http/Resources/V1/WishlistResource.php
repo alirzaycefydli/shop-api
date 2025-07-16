@@ -17,7 +17,6 @@ class WishlistResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'price' => $this->price,
             'discounted_price'=> $this->discounted_price,
             'discount_percent' => $this->discount_percent,
             'rating' => $this->reviews->avg('rating'),
