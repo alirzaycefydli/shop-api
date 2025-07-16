@@ -14,6 +14,7 @@ class WishlistRepository
 
         return Product::whereIn('id', $wishlistItems)
             ->with('primaryImage')
+            ->with('reviews')
             ->get();
     }
 
