@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\CategoryProductResource;
 use App\Http\Resources\V1\CategoryResource;
 use App\Models\V1\Category;
-use App\Repositories\V1\CategoryService;
+use App\Services\V1\CategoryService;
 use App\Traits\V1\ApiResponseTrait;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

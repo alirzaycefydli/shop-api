@@ -5,7 +5,7 @@ namespace App\Http\Controllers\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\ProductResource;
 use App\Http\Resources\V1\SingleProductResource;
-use App\Repositories\V1\ProductService;
+use App\Services\V1\ProductService;
 use App\Traits\V1\ApiResponseTrait;
 use Illuminate\Http\JsonResponse;
 

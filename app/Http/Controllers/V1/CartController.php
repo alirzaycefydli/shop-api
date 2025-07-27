@@ -8,7 +8,7 @@ use App\Http\Requests\V1\UpdateCartItemRequest;
 use App\Http\Resources\V1\CartResource;
 use App\Models\V1\Cart;
 use App\Models\V1\Product;
-use App\Repositories\V1\CartService;
+use App\Services\V1\CartService;
 use App\Traits\V1\ApiResponseTrait;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\JsonResponse;

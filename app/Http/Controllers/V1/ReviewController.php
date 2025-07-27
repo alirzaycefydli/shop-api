@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\ReviewRequest;
 use App\Http\Resources\V1\ReviewResource;
 use App\Models\V1\Product;
-use App\Repositories\V1\ReviewService;
+use App\Services\V1\ReviewService;
 use App\Traits\V1\ApiResponseTrait;
 use Illuminate\Http\JsonResponse;
 
