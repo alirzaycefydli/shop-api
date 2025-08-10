@@ -4,7 +4,7 @@ namespace App\Services\V1;
 
 use App\Models\V1\Product;
 
-class ProductRepository
+class ProductService
 {
     /**
      * Returns the latest products

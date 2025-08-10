@@ -4,7 +4,7 @@ namespace App\Services\V1;
 
 use App\Models\V1\Review;
 
-class ReviewRepository
+class ReviewService
 {
     public function getReviewByProduct($product)
     {

@@ -5,7 +5,7 @@ namespace App\Services\V1;
 use App\Models\V1\Category;
 use App\Models\V1\Product;
 
-class CategoryRepository
+class CategoryService
 {
 
     public function getAllCategories()

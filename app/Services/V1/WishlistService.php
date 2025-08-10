@@ -5,7 +5,7 @@ namespace App\Services\V1;
 use App\Models\V1\Product;
 use App\Models\V1\Wishlist;
 
-class WishlistRepository
+class WishlistService
 {
 
     public function getWishlist()
