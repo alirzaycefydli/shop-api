@@ -17,7 +17,16 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->words(3, true),
+            'slug' => fake()->slug(),
+            'description' => fake()->sentence(),
+            'short_description' => fake()->sentence(2, true),
+            'price' => fake()->randomFloat(2, 1, 100),
+            'brand' => fake()->words(2, true),
+            'quantity' => fake()->randomNumber(1,100),
+            'discount_percent' => fake()->randomNumber(1,20),
+            'is_confirmed' => true,
+            'is_featured' => true,
         ];
     }
 }
