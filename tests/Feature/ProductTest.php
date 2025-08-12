@@ -12,7 +12,7 @@ class ProductTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_test_returns_empty_list_when_no_products_exist(): void
+    public function test_returns_empty_list_when_no_products_exist(): void
     {
         $response = $this->getJson('api/v1/products');
 
